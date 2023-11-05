@@ -1,0 +1,15 @@
+.centered-card {
+    padding-top: 4rem;
+    display: flex;
+    justify-content: center;
+}
+.temp{
+    font-size: 64px;
+    font-weight: 500;
+}
+.first-col {
+    text-align: left;
+}
+.last-col {
+    text-align: right;
+}
