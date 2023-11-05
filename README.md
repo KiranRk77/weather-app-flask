@@ -12,4 +12,4 @@ Add the API_KEY in the **.env** file.
 Run the **app.py** file for the flask application to run.
 
 ## Demo
-![screenshot](screenshots/demo.png)
+![screenshot](static/demo.png)
