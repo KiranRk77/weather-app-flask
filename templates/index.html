@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <link rel="icon" type="image/x-icon" href="/static/fav.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+    <style>
+        .centered-card {
+            padding-top: 4rem;
+            display: flex;
+            justify-content: center;
+        }
+        .temp{
+            font-size: 64px;
+            font-weight: 500;
+        }
+        .first-col {
+            text-align: left;
+        }
+        .last-col {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="mt-5">Weather App</h1> <br>
+        <form action="/" method="post">
+            <div class="container-sm text-center">
+              <div class="row">
+                  <div class="col">
+                      <input type="text" id="city" name="city" placeholder="City" class="form-control">
+                  </div>
+                  <div class="col">
+                      <input type="text" id="state" name="state" placeholder="State" class="form-control">
+                  </div>
+                  <div class="col">
+                      <input type="text" id="country" name="country" placeholder="Country" class="form-control">
+                  </div>
+                  <div class="col">
+                      <button type="submit" class="btn btn-primary">Search</button>
+                  </div>
+              </div>
+            </div>
+        </form>
+
+        {% if data %}
+            <div class="container centered-card">
+                <div class="card w-50">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://openweathermap.org/img/wn/{{ data.icon }}@4x.png" alt="icon">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Weather Today in <span style="">{{ data.name }}</span></h5>
+                                <p class="card-text"><span class="temp">{{ data.temp }}°</span></p>
+                                <p class="card-text">{{ data.description }}. Feels like {{ data.feels_like }}°</p>
+                                <div class="row">
+                                    <div class="col-6 first-col">
+                                        <p class="card-text">Pressure</p>
+                                    </div>
+                                    <div class="col-6 last-col">
+                                        <p class="card-text">{{ data.pressure }} hPa</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 first-col">
+                                        <p class="card-text">Humidity</p>
+                                    </div>
+                                    <div class="col-6 last-col">
+                                        <p class="card-text">{{ data.humidity }}%</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 first-col">
+                                        <p class="card-text">Wind Speed</p>
+                                    </div>
+                                    <div class="col-6 last-col">
+                                        <p class="card-text">{{ data.wind }} m/s</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous">
+    </script>
+</body>
+</html>
